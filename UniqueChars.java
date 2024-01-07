@@ -12,8 +12,9 @@ public class UniqueChars {
      */
     public static String uniqueChars(String s) {
         String newS = "";
+        char space = ' ';
         for (int i = 0; i < s.length(); i++){
-            if (newS.indexOf(s.charAt(i)) == -1){
+            if (newS.indexOf(s.charAt(i)) == -1 || s.charAt(i) == space){
                 newS += s.charAt(i);
             }
         }
