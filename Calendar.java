@@ -1,10 +1,10 @@
 import java.time.YearMonth;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.time.DayOfWeek;
+
 /*This program gets a
 given year, like 2021, and prints the calendar of that year*/
-public class Calender {
+public class Calendar {
     static int dayOfMonth = 1;
     static int month = 1;
     static int dayOfWeek;     // 1.1.1900 was a Monday
