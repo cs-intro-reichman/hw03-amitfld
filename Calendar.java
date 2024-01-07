@@ -11,8 +11,7 @@ public class Calendar {
     static int dayOfWeek;     // 1.1.1900 was a Monday
     static int nDaysInMonth = 31; // Number of days in January
     public static void main(String args[]) {
-        //year = Integer.parseInt(args[0]);
-        year = 2020;
+        year = Integer.parseInt(args[0]);
         int daysInMonth = nDaysInMonth(month, year);
         String dateStr = String.format("%d-01-01", year);
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
@@ -20,7 +19,6 @@ public class Calendar {
         try {
             LocalDate date = LocalDate.parse(dateStr, formatter);
             String dayOfWeekStr = date.getDayOfWeek().toString();
-            System.out.println(dayOfWeekStr);
             switch (dayOfWeekStr) {
                 case "SUNDAY":
                     dayOfWeek = 1;
@@ -44,13 +42,11 @@ public class Calendar {
                     dayOfWeek = 7;
                     break;
                 default:
-                    System.out.println("Invalid day");
                     break;
             }
         } catch (Exception e) {
             System.out.println("Error: " + e.getMessage());
         }
-        System.out.println(dayOfWeek);
 
         while (true) {
             if (dayOfWeek == 1){
