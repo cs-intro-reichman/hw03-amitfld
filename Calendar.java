@@ -7,10 +7,12 @@ given year, like 2021, and prints the calendar of that year*/
 public class Calendar {
     static int dayOfMonth = 1;
     static int month = 1;
+    static int year;
     static int dayOfWeek;     // 1.1.1900 was a Monday
     static int nDaysInMonth = 31; // Number of days in January
     public static void main(String args[]) {
-        int year = Integer.parseInt(args[0]);
+        //year = Integer.parseInt(args[0]);
+        year = 2020;
         int daysInMonth = nDaysInMonth(month, year);
         String dateStr = String.format("%d-01-01", year);
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
@@ -18,6 +20,7 @@ public class Calendar {
         try {
             LocalDate date = LocalDate.parse(dateStr, formatter);
             String dayOfWeekStr = date.getDayOfWeek().toString();
+            System.out.println(dayOfWeekStr);
             switch (dayOfWeekStr) {
                 case "SUNDAY":
                     dayOfWeek = 1;
@@ -47,6 +50,7 @@ public class Calendar {
         } catch (Exception e) {
             System.out.println("Error: " + e.getMessage());
         }
+        System.out.println(dayOfWeek);
 
         while (true) {
             if (dayOfWeek == 1){
@@ -67,6 +71,7 @@ public class Calendar {
             dayOfMonth = 1;
             if (month != 12){
                 month ++;
+                nDaysInMonth = nDaysInMonth(month, year);
             }
         } else {
             dayOfMonth ++;
